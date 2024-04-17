@@ -6,21 +6,21 @@ def main():
     output_data = [[0, 0] for _ in range(MAX)]
     k = 0
 
-    # get the number of elements from the user
-    n = int(input("Enter the number of elements: "))
+    # get the number of tasks from the user
+    job_list = int(input("Enter the number of tasks: "))
 
-    # get the array entries from the user
-    print("Enter your array entries:")
-    for i in range(n):
-        input_data[i][0] = int(input("Data[{}]: ".format(i)))
+    # get the task entries from the user
+    print("Enter your task entries:")
+    for i in range(job_list):
+        input_data[i][0] = int(input("Task[{}]: ".format(i)))
         input_data[i][1] = 0
 
-    # store the unique elements and its frequency in output array
-    for i in range(n):
+    # store the unique task and its frequency in output array
+    for i in range(job_list):
         if input_data[i][1]:
             continue
         count = 1
-        for j in range(i + 1, n):
+        for j in range(i + 1, job_list):
             if input_data[i][0] == input_data[j][0]:
                 input_data[j][1] = 1
                 count += 1
@@ -29,30 +29,41 @@ def main():
         output_data[k][1] = count
         k += 1
 
-    n = k
+    job_list = k
 
-    # print the data and its frequency in output array
-    print("Array Elements and its frequency:")
-    print(" Data   Frequency")
-    for i in range(n):
+    # print the task and its frequency in output array
+    print("Tasks and its frequency:")
+    print(" Task   Frequency")
+    for i in range(job_list):
         print("   {}     {}".format(output_data[i][0], output_data[i][1]))
 
-    # sort the data in output array based on frequencies
-    for i in range(n - 1):
+    # sort the task in output array based on frequencies
+    for i in range(job_list - 1):
         temp = output_data[i][1]
-        for j in range(i + 1, n):
+        for j in range(i + 1, job_list):
             if temp < output_data[j][1]:
                 temp = output_data[j][1]
                 output_data[j][1], output_data[i][1] = output_data[i][1], temp
                 temp = output_data[j][0]
                 output_data[j][0], output_data[i][0] = output_data[i][0], temp
 
-    # print the sorted data in output array
-    print("\nSorted Array Elements based on their frequency:")
-    print(" Data   Frequency")
-    for i in range(n):
+    # print the sorted task in output array
+    print("\nSorted Tasks based on their frequency:")
+    print(" Task   Frequency")
+    for i in range(job_list):
         print("   {}    {}    ".format(output_data[i][0], output_data[i][1]))
 
+
+    # select the number of test tasks
+    test_task = int(input("Enter the number of test tasks to be selected: "))
+
+
+    # print the test task from the highest workload (i.e. maximum frequency tasks) of the previous test window
+    print("\nTest Tasks List:")
+    print(" Task   Frequency")
+    for i in range(test_task):
+        if test_task<job_list:
+            print("   {}    {}    ".format(output_data[i][0], output_data[i][1]))
 
 if __name__ == "__main__":
     main()
