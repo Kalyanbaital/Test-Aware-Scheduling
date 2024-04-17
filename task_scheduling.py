@@ -149,6 +149,9 @@ def time_core_release():
 
 
 def localqueue_tocore():
+    """
+    Function to accomodation of selected job to selecte core for execution.
+    """
     # Assume Job J [3][4] (Release time 15 ms, Deadline 19 ms) from local queue of C1 needs to be assigned to Core C1 (Idle time 15 ms)
     # Assume Execution time of J[3][4] is 2/5 ms i.e 0.4 ms as the Job is 1/5th of the Task 3 (execution time 2)
     C1p = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]    # period
