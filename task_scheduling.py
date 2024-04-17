@@ -8,13 +8,13 @@ def main():
     Main function to demonstrate idle cores and their corresponding idle times.
     """
     # Initialize a 2D list with zeros to store idle times of cores
-    I = [[0]*10 for _ in range(5)]
+    Idle_time = [[0]*10 for _ in range(5)]
     
     # List to iterate through idle times
     k = 0
 
     # Periods of tasks
-    P = [
+    Period = [
         [2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
         [4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
         [6, 12, 18, 24, 30, 36, 42, 48, 54, 60],
@@ -23,7 +23,7 @@ def main():
     ]
 
     # Execution times of tasks
-    e = [
+    execution_time = [
         [1, 3, 5, 7, 9, 11, 13, 15, 17, 19],
         [2, 6, 10, 14, 18, 22, 26, 30, 34, 38],
         [3, 9, 15, 21, 27, 33, 39, 45, 51, 57],
@@ -38,14 +38,14 @@ def main():
         # Iterate through each time slot
         for k in range(10):
             # Check if execution time is less than period
-            if e[T][k] < P[T][k]:
-                I[T][k] = e[T][k]
-                print(f"{I[T][k]}\t")
+            if execution_time[T][k] < Period[T][k]:
+                Idle_time[T][k] = execution_time[T][k]
+                print(f"{Idle_time[T][k]}\t")
 
     print("\n\nComplete Idle time at following ms:\n")
     for T in range(5):
         for k in range(10):
-            print(f"{I[T][k]}\t", end="")
+            print(f"{Idle_time[T][k]}\t", end="")
     print()
 
 
@@ -54,7 +54,7 @@ def period_core():
     Function to print period of each core.
     """
     # Periods of tasks
-    P = [
+    Period = [
         [2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
         [4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
         [6, 12, 18, 24, 30, 36, 42, 48, 54, 60],
@@ -66,7 +66,7 @@ def period_core():
     for i in range(5):
         print(f"\nCore Number: C[{i+1}] and Period is at following ms:\n\n")
         for j in range(10):
-            print(f"{P[i][j]}\t", end="")
+            print(f"{Period[i][j]}\t", end="")
         print()
 
 
@@ -104,7 +104,7 @@ def time_core_release():
     """
     Function to match release times of jobs with idle times of cores.
     """
-    R = [
+    Release_time = [
         [0, 2, 4, 6, 8],
         [0, 3, 6, 9, 12],
         [0, 5, 10, 15, 20],
@@ -117,7 +117,7 @@ def time_core_release():
         [0, 25, 50, 75, 100]
     ]
 
-    D = [
+    Deadline = [
         [1, 3, 5, 7, 9],
         [3, 6, 9, 12, 15],
         [4, 9, 14, 19, 24],
@@ -130,7 +130,7 @@ def time_core_release():
         [24, 49, 74, 99, 124]
     ]
 
-    I = [
+    Idle_time = [
         [1, 3, 5, 7, 9, 11, 13, 15, 17, 19],
         [2, 6, 10, 14, 18, 22, 26, 30, 34, 38],
         [3, 9, 15, 21, 27, 33, 39, 45, 51, 57],
@@ -143,8 +143,8 @@ def time_core_release():
         for column1 in range(5):
             for row2 in range(5):
                 for column2 in range(10):
-                    if I[row2][column2] == R[row1][column1]:
-                        print(f"\nRelease time {I[row2][column2]} ms of Job J[{row1+1}][{column1+1}] matches the Idle time {I[row2][column2]} ms of Core {row2+1}")
+                    if Idle_time[row2][column2] == Release_time[row1][column1]:
+                        print(f"\nRelease time {Idle_time[row2][column2]} ms of Job J[{row1+1}][{column1+1}] matches the Idle time {Idle_time[row2][column2]} ms of Core {row2+1}")
                         #print()
 
 
@@ -159,10 +159,10 @@ def localqueue_tocore():
     Rj = 15
     Ej = 0.4
     Dj = 19.0
-    Total_Time = Rj + Ej
+    completion_Time = Rj + Ej
 
     for i in range(10):
-        if Rj == C1i[i] and (Total_Time < C1p[i] and Total_Time < Dj):
+        if Rj == C1i[i] and (completion_Time < C1p[i] and completion_Time < Dj):
             print("\n\nAssigned the Job J to the Core C1 Successfully at {} ms and will be completed before next period {} ms!!".format(C1i[i], C1p[i]))
 
 
