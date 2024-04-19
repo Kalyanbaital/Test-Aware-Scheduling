@@ -12,16 +12,16 @@ job_accommodation = {
 
 # Sample data for job_accommodation
 job_accommodation_to_core = [
-    {'core': 0, 'release_time': 0, 'execution_time': 5, 'period': 20, 'deadline': 15, 'completion_time': 0},
-    {'core': 1, 'release_time': 2, 'execution_time': 3, 'period': 25, 'deadline': 18, 'completion_time': 0},
-    {'core': 2, 'release_time': 4, 'execution_time': 6, 'period': 30, 'deadline': 22, 'completion_time': 0}
+    {'core': 0, 'release_time': 0, 'execution_time': 5, 'period': 20, 'deadline': 15, 'completion_time': 5},
+    {'core': 1, 'release_time': 2, 'execution_time': 3, 'period': 25, 'deadline': 18, 'completion_time': 5},
+    {'core': 2, 'release_time': 4, 'execution_time': 6, 'period': 30, 'deadline': 22, 'completion_time': 10}
 ]
 
 # Define core_idle_time dictionary
 core_idle_time = {
     0: {'idle_time': 0},  # Sample initial values for core 0
-    1: {'idle_time': 0},  # Sample initial values for core 1
-    2: {'idle_time': 0}   # Sample initial values for core 2
+    1: {'idle_time': 2},  # Sample initial values for core 1
+    2: {'idle_time': 4}   # Sample initial values for core 2
 }
 
 def job_local_queue_to_core(job_accommodation_to_core):
@@ -40,9 +40,9 @@ def job_local_queue_to_core(job_accommodation_to_core):
 
 # Sample data for test_task_accommodation
 test_task_accommodation_to_core = [
-    {'core': 0, 'release_time': 1, 'execution_time': 4, 'period': 15, 'completion_time': 0},
-    {'core': 1, 'release_time': 3, 'execution_time': 2, 'period': 20, 'completion_time': 0},
-    {'core': 2, 'release_time': 5, 'execution_time': 3, 'period': 25, 'completion_time': 0}
+    {'core': 0, 'release_time': 1, 'execution_time': 4, 'period': 15, 'completion_time': 5},
+    {'core': 1, 'release_time': 2, 'execution_time': 2, 'period': 20, 'completion_time': 4},
+    {'core': 2, 'release_time': 5, 'execution_time': 3, 'period': 25, 'completion_time': 8}
 ]
 
 def test_task_local_queue_to_core(test_task_accommodation_to_core):
