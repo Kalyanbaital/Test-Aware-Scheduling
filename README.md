@@ -1,2 +1,2 @@
 # Test-Aware-Scheduling
- Scheduling Real_Time Tasks in Multicore System
+ It is a simulator for Scheduling Real_Time Tasks in Multicore System considering the accomodation of Test Task (without disturbing the scheduling of user tasks) to test the cores and establish higher fault coverage of the system. The simulator is useful for estimating the effectiveness of scheduling algorithm in the light of three quality of service (QoS) parameters - throughput, energy efficiency, and reliability of the system.
