@@ -163,7 +163,8 @@ def localqueue_tocore():
 
     for i in range(10):
         if Rj == C1i[i] and (completion_Time < C1p[i] and completion_Time < Dj):
-            print("\n\nAssigned the Job J to the Core C1 Successfully at {} ms and will be completed before next period {} ms!!".format(C1i[i], C1p[i]))
+            print("\n\nAccomodation / Assignment of selected job to selecte core for execution (one example case):")
+            print("\nAssigned the Job J[3][4] to the Core C1 Successfully at {} ms and will be completed before next period {} ms!!".format(C1i[i], C1p[i]))
 
 
 if __name__ == "__main__":

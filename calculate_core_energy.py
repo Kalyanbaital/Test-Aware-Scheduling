@@ -33,5 +33,6 @@ def sum_core_energies(Q_local):
 
 # Calculate and print the sum of energies for each core
 energies = sum_core_energies(Q_local)
+print("\n\nCalculation of Core Energy (example cases):")
 for core, energy in enumerate(energies):
-    print(f"Energy for Core {core}: {energy}")
+    print(f"\nEnergy for Core {core}: {energy}")

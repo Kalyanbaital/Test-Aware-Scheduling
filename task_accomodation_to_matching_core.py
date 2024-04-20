@@ -60,10 +60,12 @@ def test_task_local_queue_to_core(test_task_accommodation_to_core):
     return test_task_number, core_number
 
 # Testing the functions
+print("\n\nAccomodation / Assignment of selected job to selecte core for execution (example cases):")
 job_assigned, assigned_core = job_local_queue_to_core(job_accommodation_to_core)
 print("Job assigned to core:", job_assigned)
 print("Assigned core:", assigned_core)
 
+print("\n\nAccomodation / Assignment of selected Test Task to selecte core for execution (example cases):")
 test_task_assigned, assigned_core = test_task_local_queue_to_core(test_task_accommodation_to_core)
 print("Test task assigned to core:", test_task_assigned)
 print("Assigned core:", assigned_core)
